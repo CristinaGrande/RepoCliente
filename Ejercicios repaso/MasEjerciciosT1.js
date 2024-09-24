@@ -23,7 +23,7 @@ function comprobarOperadores() {
   let var2 = "90";
   alert(var1 == var2); // false
   alert(var1 != var2); // true
-  alert(var1 < var2); // false
+  alert(var1 < var2); // true
   alert(var1 > var2); // true
   alert(var1 <= var2); // false
   alert(var1 >= var2); // true
@@ -157,7 +157,19 @@ function recomendarSeries() {
 
 // Ejercicio 7
 
-function funcionIf(numero) {}
+function funcionIf(num) {
+  let soyDeLaFuncion = 1;
+  const soyConstante = 2;
+
+  if(1) {
+    let soyDeIf = 3;
+    soyDeLaFuncion = 4;
+  } else {
+    soyConstante = 5;
+  }
+
+  console.log(soyDeLaFuncion, soyConstante, soyDeIf);
+}
 
 // Ejercicio 8
 

@@ -45,6 +45,38 @@ function llamarSumar() {
   }
 }
 
+// Ejercicio 11
+
+function sumar() {
+  let num1 = parseInt(prompt("Introduce el primer número:"));
+  let num2 = parseInt(prompt("Introduce el segundo número:"));
+
+  let suma = num1 + num2;
+
+  console.log(suma);
+  let num3;
+
+  while (true) {
+    num3 = parseInt(
+      prompt("Introduce un número para sumar al resultado anterior:")
+    );
+
+    if (isNaN(num3)) {
+      throw new Error("debes introducir un numero");
+    }
+    suma = suma + num3;
+    console.log(suma);
+  }
+}
+
+function llamarSumar() {
+  try {
+    sumar();
+  } catch (e) {
+    console.log("Se ha producido un error: " + e.message);
+  }
+}
+
 // Ejercicio 12
 
 function calcularPrecioFinal(precioArticulo, tipoIva) {
@@ -74,3 +106,41 @@ function pagar() {
 
   calcularPrecioFinal(precio, iva);
 }
+
+// Ejercicio 13
+
+function elevarNumeros() {
+  let num1 = parseInt(prompt("Introduce el primer número:"));
+  let num2 = parseInt(prompt("Introduce el segundo número:"));
+
+  let resultado = Math.pow(num1, num2);
+
+  console.log(
+    "El resultado de elevar " + num1 + " a " + num2 + " es " + resultado
+  );
+}
+
+function solicitarPass() {
+  let usuario = prompt("Introduce el nombre de usuario");
+  let password;
+  while(true) {
+    password = prompt("Introduce la contraseña:");
+    if(password === "abcd") break;
+  }
+  alert("Usuario: " + usuario + " Contraseña: " + password);
+}
+
+
+
+// ESTILO PREGUNTA EXAMEN
+
+let coche = "ford";
+let cont = 1;
+
+while (true) {
+  coche = coche + cont;
+  cont++;
+  break;
+}
+
+console.log(coche);
