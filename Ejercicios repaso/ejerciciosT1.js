@@ -109,6 +109,21 @@ function pagar() {
 
 // Ejercicio 13
 
+function lineasColumnas() {
+  let num1 = parseInt(prompt("Introduce un número"));
+  let num2 = parseInt(prompt("Introduce el segundo número:"));
+  let letra = prompt("letra");
+
+  const arr = [];
+  for (let j = 0; j < num2; j++) {
+    arr.push(letra);
+  }
+
+  for (let i = 0; i < num1; i++) {
+    console.log(arr.join(" "));
+  }
+}
+
 function elevarNumeros() {
   let num1 = parseInt(prompt("Introduce el primer número:"));
   let num2 = parseInt(prompt("Introduce el segundo número:"));
@@ -123,14 +138,14 @@ function elevarNumeros() {
 function solicitarPass() {
   let usuario = prompt("Introduce el nombre de usuario");
   let password;
-  while(true) {
+  while (true) {
     password = prompt("Introduce la contraseña:");
-    if(password === "abcd") break;
+    if (password === "abcd") break;
   }
   alert("Usuario: " + usuario + " Contraseña: " + password);
 }
 
-
+//
 
 // ESTILO PREGUNTA EXAMEN
 
