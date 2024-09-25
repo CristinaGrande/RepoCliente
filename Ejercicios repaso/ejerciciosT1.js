@@ -147,6 +147,16 @@ function solicitarPass() {
 
 //
 
+// Ejercicio 14
+
+function pedirNombresDeportes() {
+  let deporte1 = prompt("Introduce un deporte:");
+  let deporte2 = prompt("Introduce un deporte:");
+  let deporte3 = prompt("Introduce un deporte:");
+}
+
+
+
 // ESTILO PREGUNTA EXAMEN
 
 let coche = "ford";
