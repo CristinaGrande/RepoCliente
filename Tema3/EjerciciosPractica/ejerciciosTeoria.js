@@ -59,3 +59,116 @@ console.log(arrayNombres);
 }
 
 pruebaArrays2();
+
+// EJERCICIO 2 TEMA ARRAYS
+
+let arrayCostura = ["tela", "bies", "hilo", "tijeras", "máquina de coser", "botón"];
+
+console.log(arrayCostura);
+
+arrayCostura.splice(1, 1);
+
+console.log(arrayCostura);
+
+arrayCostura.splice(2,0, "hilo torzal");
+
+console.log(arrayCostura);
+
+arrayCostura.splice(3, 1, "cúter rotatorio", "mesa de corte");
+
+console.log(arrayCostura);
+
+let arrayCosturaOriginal = ["tela", "bies", "hilo", "tijeras", "máquina de coser", "botón"];
+
+let arrayCostura2 = arrayCosturaOriginal.slice(0,3);
+
+console.log(arrayCostura2);
+
+let arrayCostura3 = arrayCosturaOriginal.slice(3,6);
+
+console.log(arrayCostura3);
+
+arrayCostura2.unshift("remalladora");
+
+console.log(arrayCostura2);
+
+arrayCostura2.splice(3, 0, "cinta métrica");
+
+console.log(arrayCostura2);
+
+console.log("Contenido de los 3 arrays:");
+
+console.log(arrayCosturaOriginal);
+console.log(arrayCostura2);
+console.log(arrayCostura3);
+
+// EJERCICIO 3
+
+let arrayCostura = ["tela", "bies", "hilo", "tijeras", "máquina de coser", "botón"];
+
+console.log(arrayCostura);
+
+arrayCostura.splice(1, 1);
+
+console.log(arrayCostura);
+
+arrayCostura.splice(2,0, "hilo torzal");
+
+console.log(arrayCostura);
+
+arrayCostura.sort(function (elemento1, elemento2) {
+  
+  if(elemento1.length > elemento2.length) {
+    return -1;
+  }
+  if(elemento1.length < elemento2.length) {
+    return 1;
+  }
+  
+  return 0;
+  
+})
+
+console.log(arrayCostura);
+
+
+// EJERCICIO 4
+
+function separarElementos() {
+  
+  let numero;
+  let arrayNumeros = [];
+  while(true){
+    numero = prompt("Introduce un número para añadir:")
+    arrayNumeros.split("-");
+  }
+  
+  arrayNumeros.sort();
+  console.log(arrayNumeros);
+}
+
+
+separarElementos();
+
+//mostrar el array completo con join
+
+// Documento Ejercicios Arrays
+
+// Ejercicio 1
+
+function pedirNumeros() {
+  
+  let arrayNumeros = [];
+  let numero;
+  do{
+    numero = parseInt(prompt("Introduce un número:"));
+    arrayNumeros.push(numero);
+  } while(numero !== 0);
+  
+  arrayNumeros.sort();
+  console.log(arrayNumeros);
+  
+}
+
+pedirNumeros();
+
