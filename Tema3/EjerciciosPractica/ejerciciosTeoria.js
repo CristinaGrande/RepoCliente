@@ -134,24 +134,40 @@ console.log(arrayCostura);
 
 // EJERCICIO 4
 
-function separarElementos() {
+function separarValores() {
   
-  let numero;
   let arrayNumeros = [];
-  while(true){
-    numero = prompt("Introduce un número para añadir:")
-    arrayNumeros.split("-");
-  }
+  let elemento;
   
-  arrayNumeros.sort();
-  console.log(arrayNumeros);
+  while(true) {
+    
+    elemento = Number(prompt("Introduce un valor para el array:"));
+    
+    if((elemento === null) || (elemento === "") || (isNaN(elemento))) {
+      break;
+    }
+    arrayNumeros.push(elemento);
+  }
+console.log(arrayNumeros);
+
+arrayNumeros.sort(function(elem1, elem2) {
+  
+  if(elem1 > elem2) {
+    return 1;
+  }
+  if(elem1 < elem2) {
+    return -1;
+  }
+  return 0;
+});
+console.log("Array ordenado de menor a mayor:")
+console.log(arrayNumeros);
+  
+console.log(arrayNumeros.join("-"));
+
+        
 }
-
-
-separarElementos();
-
-//mostrar el array completo con join
-
+// ========================================================================================
 // Documento Ejercicios Arrays
 
 // Ejercicio 1
