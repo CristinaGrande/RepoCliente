@@ -167,6 +167,35 @@ console.log(arrayNumeros.join("-"));
 
         
 }
+
+// EJERCICIO 6
+
+let arrayNotas = [5,8,6,4,7,3,9,8,1,10,5,6,7,6,10];
+
+let aprobados = arrayNotas.filter(function (nota) {
+  if(nota[0] >= 5) {
+    return true;
+  } else {
+    return false;
+  }
+})
+
+//let aprobados = arrayNotas.filter(nota => nota[0] >= 5);
+
+function sacarAprobados() {
+  let arrayNotas = [5,8,6,4,7,3,9,8,1,10,5,6,7,6,10];
+
+let aprobados = arrayNotas.filter(function (nota) {
+  if(nota[0] >= 5) {
+    return true;
+  } else {
+    return false;
+  }
+})
+console.log(aprobados);
+}
+
+sacarAprobados();
 // ========================================================================================
 // Documento Ejercicios Arrays
 
