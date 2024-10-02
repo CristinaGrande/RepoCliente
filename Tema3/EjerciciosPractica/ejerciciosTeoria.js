@@ -168,25 +168,15 @@ console.log(arrayNumeros.join("-"));
         
 }
 
-// EJERCICIO 6
+// Ejercicio 6, Punto 1:
 
-let arrayNotas = [5,8,6,4,7,3,9,8,1,10,5,6,7,6,10];
 
-let aprobados = arrayNotas.filter(function (nota) {
-  if(nota[0] >= 5) {
-    return true;
-  } else {
-    return false;
-  }
-})
-
-//let aprobados = arrayNotas.filter(nota => nota[0] >= 5);
 
 function sacarAprobados() {
-  let arrayNotas = [5,8,6,4,7,3,9,8,1,10,5,6,7,6,10];
 
+let arrayNotas = [5,8.7,6,4,7,3.5,9.5,8,1,10,5.5,6,7,6.5,10];
 let aprobados = arrayNotas.filter(function (nota) {
-  if(nota[0] >= 5) {
+  if(nota >= 5) {
     return true;
   } else {
     return false;
@@ -196,6 +186,47 @@ console.log(aprobados);
 }
 
 sacarAprobados();
+
+//Con función flecha
+
+//let aprobados = arrayNotas.filter(nota => nota >= 5);
+
+
+//Ejercicio 6, Punto 2:
+
+let arrayNotas = [5, 8.7, 6, 4, 7, 3.5, 9.5, 8, 1, 10, 5, 6, 7, 6.5, 10];
+
+let aprobados = arrayNotas.filter(nota => nota >= 5);
+
+console.log(aprobados);
+
+let buscarNota1 = arrayNotas.findIndex(nota => nota == 5.5);
+let buscarNota2 = aprobados.findIndex(nota => nota == 5.5);
+
+console.log("Posición de la nota 5.5 en los arrays:");
+console.log(buscarNota1);
+console.log(buscarNota2);
+
+//Ejercicio 6, Punto 3:
+
+let comprobarAprobados = arrayNotas.every(nota => nota >= 5);
+
+console.log(comprobarAprobados); // Devuelve false, porque no todos están aprobados.
+
+// Ejercicio 6, Punto 4
+
+let arrayPalabras = ["coche", "octubre", "pista", "abrigo", "ayer", "noche", "cielo", "sol", "lluvia", "hermano", "café", "canción"];
+
+let numeroCaracteres = arrayPalabras.filter(palabra => palabra.length < 6);
+
+console.log(numeroCaracteres);
+
+// Ejercicio 6, punto 5:
+
+let ultimaLetra = arrayPalabras.find(palabra => palabra.slice(-1) == "o");
+
+console.log(ultimaLetra);
+
 // ========================================================================================
 // Documento Ejercicios Arrays
 
