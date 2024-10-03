@@ -227,6 +227,55 @@ let ultimaLetra = arrayPalabras.find(palabra => palabra.slice(-1) == "o");
 
 console.log(ultimaLetra);
 
+// Ejercicio 6, Punto 6
+
+let arrayTelefonos = ["44231", "64212", "97543", "12345", "98433", "56475", "45675", "86478"];
+
+let terminacion = arrayTelefonos.find(numero => numero.slice(-1) == "3");
+
+console.log(terminacion);
+
+//Ejercicio 7:
+
+//Ejercicio 7, Punto 2.
+
+function notaMedia() {
+  
+  let arrayNotas = [5, 8.7, 6, 4, 7, 3.5, 9.5, 8, 1, 10, 5, 6, 7, 6.5, 10];
+  
+  let sumaTotal = 0;
+  for(let i = 0; i < arrayNotas.length; i++) {
+    sumaTotal = sumaTotal + arrayNotas[i];
+  }
+    return sumaTotal / arrayNotas.length;
+  }
+  
+  notaMedia();
+
+// Con función flecha:
+
+let suma = arrayNotas.reduce((valorAnterior, valorActual) => valorAnterior + valorActual, 0);
+
+let notaMedia = suma / arrayNotas.length;
+
+console.log(notaMedia);
+
+
+// Ejercicio 7, Punto 3
+
+let mayor = arrayNotas[0];
+
+for (var i = 0; i < arrayNotas.length; i++) {
+  if (arrayNotas[i] > mayor) {
+    mayor = arrayNotas[i];
+  }
+}
+console.log(mayor);
+
+// Con función flecha:
+
+
+
 // ========================================================================================
 // Documento Ejercicios Arrays
 
