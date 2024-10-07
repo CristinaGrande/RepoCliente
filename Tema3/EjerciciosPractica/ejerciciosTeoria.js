@@ -274,6 +274,9 @@ console.log(mayor);
 
 // Con función flecha:
 
+let notaMasAlta = arrayNotas.reduce((valorAnt, valorAct) => valor > valorAct);
+
+console.log(notaMasAlta);
 
 
 // ========================================================================================
@@ -288,7 +291,7 @@ function pedirNumeros() {
   do{
     numero = parseInt(prompt("Introduce un número:"));
     arrayNumeros.push(numero);
-  } while(numero !== 0);
+  } while(!isNaN(numero));
   
   arrayNumeros.sort();
   console.log(arrayNumeros);
@@ -296,4 +299,8 @@ function pedirNumeros() {
 }
 
 pedirNumeros();
+
+// Ejercicio 2
+
+
 
