@@ -284,7 +284,7 @@ console.log(notaMasAlta);
 
 // Ejercicio 1
 
-function pedirNumeros() {
+function pedirNumeros(numero) {
   
   let arrayNumeros = [];
   let numero;
