@@ -295,6 +295,7 @@ function pedirNumeros(numero) {
   
   arrayNumeros.sort();
   console.log(arrayNumeros);
+  console.log();
   
 }
 
