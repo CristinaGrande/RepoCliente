@@ -410,7 +410,7 @@ function imprimirNumeros() {
   const cadenaPares = [];
   const cadenaImpares = [];
 
-  for (let i = 0; i < miNumero; i++) {
+  for (let i = 0; i <= miNumero; i++) {
     if (i % 2 === 0) {
       cadenaPares.push(i);
     } else {
@@ -422,3 +422,24 @@ function imprimirNumeros() {
 }
 
 imprimirNumeros();
+
+//Ejercicio 6
+
+function crearArrayConSumas() {
+  let arrayNumeros = [];
+  let nuevoArray = [];
+
+  let cadenaNumeros = prompt("Introduce cinco números separados por $");
+
+  arrayNumeros = cadenaNumeros.split("$").map((n) => parseInt(n));
+
+  for (let i = 0; i < arrayNumeros.length; i++) {
+    let siguiente = (i + 1) % arrayNumeros.length;
+    let suma = arrayNumeros[i] + arrayNumeros[siguiente];
+    nuevoArray.push(suma);
+  }
+
+  console.log(nuevoArray);
+}
+
+// Ejercicio 7
