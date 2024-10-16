@@ -529,6 +529,39 @@ function procesarArrayDeArrays() {
 
 procesarArrayDeArrays();
 
+// Versión completa
+
+function procesarNumeros() {
+  // a. Pedir por pantalla números separados por el carácter $
+  const entrada = prompt("Introduce números separados por '$':");
+
+  // b. Crear un array de enteros a partir de la entrada
+  const array1 = entrada.split("$").map(Number);
+
+  // c. Crear el segundo array sumando elementos según la descripción
+  const array2 = array1.map((num, index) => {
+    const siguienteIndex = (index + 1) % array1.length; // Usar módulo para el último elemento
+    return num + array1[siguienteIndex];
+  });
+
+  // d. Calcular la media del primer array y encontrar el número más alto del segundo
+  const sumaArray1 = array1.reduce((acc, num) => acc + num, 0);
+  const mediaArray1 = sumaArray1 / array1.length;
+  const maxArray2 = Math.max(...array2);
+
+  // Mostrar media y máximo por consola
+  console.log(`Media del primer array: ${mediaArray1}`);
+  console.log(`Número más alto del segundo array: ${maxArray2}`);
+
+  // e. Concatenar ambos arrays, ordenarlos y mostrar el resultado
+  const arrayConcatenado = array1.concat(array2);
+  const arrayOrdenado = arrayConcatenado.sort((a, b) => a - b);
+  const resultado = arrayOrdenado.join("*");
+
+  // Mostrar el resultado
+  console.log(`Resultado concatenado y ordenado: ${resultado}`);
+}
+
 //===============================================
 // EJERCICIOS REPASO GENERAL
 
