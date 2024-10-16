@@ -41,15 +41,15 @@ let arrayCostura = [
 
 console.log(arrayCostura);
 
-arrayCostura.splice(1, 1);
+arrayCostura.splice(1, 1); // Elimina el bies
 
 console.log(arrayCostura);
 
-arrayCostura.splice(2, 0, "hilo torzal");
+arrayCostura.splice(2, 0, "hilo torzal"); // Añade esto entre hilo y tijeras
 
 console.log(arrayCostura);
 
-arrayCostura.splice(3, 1, "cúter rotatorio", "mesa de corte");
+arrayCostura.splice(3, 1, "cúter rotatorio", "mesa de corte"); // Quitamos tijeras y lo sustituimos por esto
 
 console.log(arrayCostura);
 
@@ -70,11 +70,11 @@ let arrayCostura3 = arrayCosturaOriginal.slice(3, 6);
 
 console.log(arrayCostura3);
 
-arrayCostura2.unshift("remalladora");
+arrayCostura2.unshift("remalladora"); // Incluir en la primera posicion
 
 console.log(arrayCostura2);
 
-arrayCostura2.splice(3, 0, "cinta métrica");
+arrayCostura2.splice(3, 0, "cinta métrica"); // Incluir en la penúltima posición
 
 console.log(arrayCostura2);
 
@@ -85,6 +85,7 @@ console.log(arrayCostura2);
 console.log(arrayCostura3);
 
 // EJERCICIO 3
+// Ordena array por número de caracteres
 
 let arrayCostura = [
   "tela",
@@ -120,6 +121,8 @@ console.log(arrayCostura);
 
 // EJERCICIO 4
 
+// Separar valores e imprimir separado con -
+
 function separarValores() {
   let arrayNumeros = [];
   let elemento;
@@ -146,6 +149,7 @@ function separarValores() {
 }
 
 //Ejercicio 5
+// Cubo de un número
 
 // Forma habitual
 
@@ -318,6 +322,31 @@ for (let i = 0; i < precios.length; i++) {
 
 console.log(precioTotal.toFixed(2));
 
+// Ejercicio 8
+
+function buscarTr() {
+  let parrafos = document.getElementsByClassName("titularNoticia");
+  console.log(parrafos);
+
+  let parrafosArray = Array.from(parrafos);
+  console.log(parrafosArray);
+
+  /* for(let i = 0; i<parrafosArray.length; i++) {
+      let dato = elemento.textContent;
+  } */
+
+  parrafosArray.forEach((elemento) => {
+    let dato = elemento.textContent;
+    if (!dato.includes("tr")) {
+      alert(elemento.textContent);
+    }
+  });
+}
+
+function cambiarColor() {
+  console.log(elemento);
+}
+
 // ========================================================================================
 // Documento Ejercicios Arrays
 
@@ -335,10 +364,10 @@ function pedirNumeros() {
 
   arrayNumeros.sort(function (elem1, elem2) {
     if (elem1 > elem2) {
-      return -1;
+      return 1;
     }
     if (elem1 < elem2) {
-      return 1;
+      return -1;
     }
     return 0;
   });
@@ -423,6 +452,40 @@ function imprimirNumeros() {
 
 imprimirNumeros();
 
+// Ejercicio 5 Fibonacci
+
+// Sin recursividad
+
+function fibonacci() {
+  let numero = parseInt(
+    prompt("Introduce un número para la serie de Fibonacci:")
+  );
+
+  if (isNaN(numero) || numero < 0) {
+    console.log("Por favor, introduce un número válido.");
+    return;
+  }
+
+  let fibonacci = [0, 1];
+
+  while (true) {
+    let siguiente =
+      fibonacci[fibonacci.length - 1] + fibonacci[fibonacci.length - 2];
+    if (siguiente > numero) {
+      break;
+    }
+    fibonacci.push(siguiente);
+  }
+
+  console.log("Serie de Fibonacci:", fibonacci.join(" "));
+}
+
+// Con recursividad
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
 //Ejercicio 6
 
 function crearArrayConSumas() {
@@ -434,7 +497,8 @@ function crearArrayConSumas() {
   arrayNumeros = cadenaNumeros.split("$").map((n) => parseInt(n));
 
   for (let i = 0; i < arrayNumeros.length; i++) {
-    let siguiente = (i + 1) % arrayNumeros.length;
+    if (i === arrayNumeros.length - 1) siguiente = 0;
+    else siguiente = i + 1;
     let suma = arrayNumeros[i] + arrayNumeros[siguiente];
     nuevoArray.push(suma);
   }
@@ -443,3 +507,284 @@ function crearArrayConSumas() {
 }
 
 // Ejercicio 7
+
+function procesarArrayDeArrays() {
+  let arrayDeArrays = [
+    [1, 2, 3],
+    ["1", "2", "3", "4"],
+    [true, false, false],
+    ["uno", "dos", "tres"],
+  ];
+
+  let arrayPlano = [];
+
+  for (let subArray of arrayDeArrays) {
+    arrayPlano = arrayPlano.concat(subArray.map((c) => String(c)));
+  }
+
+  arrayPlano.sort((a, b) => a.length - b.length);
+
+  console.log(arrayPlano);
+}
+
+procesarArrayDeArrays();
+
+//===============================================
+// EJERCICIOS REPASO GENERAL
+
+// Calcular IVA
+
+function calcularPrecioFinal(precioArticulo, tipoIva) {
+  let cantidadIva;
+  let precioFinal;
+
+  if (tipoIva === "G") {
+    cantidadIva = 1.21;
+    precioFinal = precioArticulo * cantidadIva;
+    alert("El precio final es " + precioFinal);
+  } else if (tipoIva === "R") {
+    cantidadIva = 1.1;
+    precioFinal = precioArticulo * cantidadIva;
+    alert("El precio final es " + precioFinal);
+  } else if (tipoIva === "S") {
+    cantidadIva = 1.04;
+    precioFinal = precioArticulo * cantidadIva;
+    alert("El precio final es " + precioFinal);
+  } else {
+    console.error("Porcentaje no válido.");
+  }
+}
+
+function pagar() {
+  precio = parseInt(prompt("Introduce el precio del artículo:"));
+  iva = prompt("Introduce el tipo de IVA (G, R, S)");
+
+  calcularPrecioFinal(precio, iva);
+}
+
+// Sacar letra, líneas y columnas
+
+function lineasColumnas() {
+  let num1 = parseInt(prompt("Introduce un número"));
+  let num2 = parseInt(prompt("Introduce el segundo número:"));
+  let letra = prompt("letra");
+
+  const arr = [];
+  for (let j = 0; j < num2; j++) {
+    arr.push(letra);
+  }
+
+  for (let i = 0; i < num1; i++) {
+    console.log(arr.join(" "));
+  }
+}
+
+// Elevar números
+
+function elevarNumeros() {
+  let num1 = parseInt(prompt("Introduce el primer número:"));
+  let num2 = parseInt(prompt("Introduce el segundo número:"));
+
+  let resultado = Math.pow(num1, num2);
+
+  console.log(
+    "El resultado de elevar " + num1 + " a " + num2 + " es " + resultado
+  );
+}
+
+// Solicitar contraseña
+
+function solicitarPass() {
+  let usuario = prompt("Introduce el nombre de usuario");
+  let password;
+  while (true) {
+    password = prompt("Introduce la contraseña:");
+    if (password === "abcd") break;
+  }
+  alert("Usuario: " + usuario + " Contraseña: " + password);
+}
+
+// ==============================================================================
+
+// Proyecto
+
+const frutas = [
+  "fresa",
+  "kiwi",
+  "mango",
+  "manzana",
+  "naranja",
+  "pera",
+  "pina",
+  "platano",
+  "sandia",
+  "uva",
+];
+
+const precios = [3, 3.5, 2.8, 2.5, 1.8, 2.1, 2, 1.2, 0.9, 4.5];
+
+const cesta = [];
+
+let precioFrutaElegida;
+let precioActual;
+let totalKilos = 0;
+let precioFinal = 0;
+let precioMedio = 0;
+
+function anadirKilos(nombreFruta) {
+  // Buscamos la fruta en la cesta
+  const frutaEnCesta = cesta.find((f) => f.nombre === nombreFruta);
+
+  // Si no está, la incluímos y añadimos el primer kilo.
+  if (!frutaEnCesta) {
+    cesta.push({
+      nombre: nombreFruta,
+      cantidad: 1,
+    });
+    // Si está, sumamos un kilo más.
+  } else {
+    frutaEnCesta.cantidad++;
+  }
+
+  // Buscamos el índice en el que está la fruta.
+  precioFrutaElegida = frutas.indexOf(nombreFruta);
+
+  // Y lo hacemos coincidir con el mismo índice en el array de los precios.
+  precioActual = precios[precioFrutaElegida];
+
+  // Y vamos sumando cada precio hasta obtener el total de la compra.
+  precioFinal = precioFinal + precioActual;
+
+  // Borramos el contenido del div al pulsar en la fruta de nuevo
+  document.getElementById("resumenCompra").innerHTML = "";
+}
+
+function mostrarCompraRealizada() {
+  // Si la cesta está vacía, lanzamos un mensaje de error por consola.
+  // Error hace que la función no pueda continuar.
+  if (cesta.length < 1) throw Error("La cesta está vacía");
+
+  // Recuperamos el div en el que vamos a imprimir el ticket de la compra.
+  const ticket = document.getElementById("resumenCompra");
+
+  // Ordenamos los elementos de cesta en orden alfabético inverso.
+  cesta.sort(function (fruta1, fruta2) {
+    if (fruta1.nombre < fruta2.nombre) {
+      return 1;
+    }
+    if (fruta1.nombre > fruta2.nombre) {
+      return -1;
+    }
+    return 0;
+  });
+
+  //IMPORTANTE: Declaramos esta cadena vacía donde iremos concatenando para lo que aparecerá
+  // en el html.
+
+  let resultado = "";
+
+  // Recorremos la cesta y vamos concatenando con la etiqueta div y su contenido.
+  for (let i in cesta) {
+    let fruta = cesta[i];
+
+    if (fruta.cantidad === 1) {
+      resultado +=
+        "<div>" + fruta.nombre + " ---- " + fruta.cantidad + " kilo</div>";
+    } else {
+      resultado +=
+        "<div>" + fruta.nombre + " ---- " + fruta.cantidad + " kilos</div>";
+    }
+  }
+  resultado += "<div>-----------------------</div>";
+  resultado += "<div>" + "Precio Total: " + precioFinal.toFixed(2) + " €</div>";
+
+  // Recorremos la cesta una vez más para el total de los kilos.
+  for (let i in cesta) {
+    totalKilos = totalKilos + cesta[i].cantidad;
+  }
+
+  // Calculamos el precio medio de nuestra compra y lo concatenamos en resultado.
+  precioMedio = precioFinal / totalKilos;
+
+  resultado +=
+    "<div>" + "Precio medio: " + precioMedio.toFixed(2) + " €/kg</div>";
+
+  // Hacemos innerHTML para mostrar el contenido de nuestro div.
+  ticket.innerHTML = resultado;
+
+  // Y llamamos a nuestro método que se ocupará de reiniciar el valor de las variables.
+  reiniciarCompra();
+}
+
+function reiniciarCompra() {
+  cesta.length = 0;
+  precioFinal = 0;
+  totalKilos = 0;
+  precioMedio = 0;
+}
+
+//Métodos de arrays
+
+/**
+ Push - Incluye el elemento al final
+ Pop - Elimina el último elemento
+ Shift - Elimina el primer elemento
+ unshift - Incluye el elemento al principio
+ length - devuelve la longitud o incluye al final
+
+ Slice - Crea un nuevo array con los elementos de otro (1er valor: posición desde la que comienza la 
+  extracción. 2º valor: hasta donde se extrae (sin incluir dicho valor))
+
+Splice - Modifica el contenido del array, agregando o quitando elementos. 
+  Para insertar, indicamos: Posición donde se agregará, nº de elementos a eliminar y el elemento a insertar.
+
+Sort - Ordena el array alfabéticamente (para cadenas)
+
+toString - Devuelve una cadena separada por comas.
+join - igual que toString, pero separa con lo que nosotros indiquemos.
+split - igual que los otros dos, pero podemos indicar un carácter para que separe varios elementos que 
+  introduzcamos de una sola vez.
+
+concat - Concatena arrays (un array de arrys también serviría)
+reverse - invierte el orden de los elementos
+
+indexOf - Devuelve la 1ª posición de lo que le pasemos por parámetro 
+  (o -1, en caso de que el elemento no esté en el array)
+
+lastIndexOf - igual, pero devuelve la última posición del elemento.
+
+
+filter - Devuelve un nuevo array con los elementos que cumplan la condición indicada.
+find - Devuelve el 1er elemento que cumpla con la condición indicada.
+findIndex - Devuelve el índice del 1er elemento que cumplca con la condición indicada.
+
+every - Devuelve true si todos los elementos del array cunplen con la condición indicada.
+some - Devuelve true si al menos un elemento del array cumple con la condición indicada.
+
+map - Crea un nuevo array permitiendo modificar cada elemento del original, para meterlo
+  en uno nuevo.
+
+reduce - devuelve un único valor tras ejecutar una función que lo calcule a partir de los elementos
+  del array. Ejemplo:
+
+        let arrayPalabras = ["casa", "abedul", "coche", "rio", "alameda", "alegría", "portón"];
+
+        let cadenaUnica = arrayPalabras.reduce((valorAnt, valorAct) => valorAnt + valorAct);
+          Esto saca: casaabedulcocherioalamedaalegríaportón
+
+        let cadenaUnica2 = arrayPalabras.reduce((valorAnt, valorAct) => valorAnt + valorAct, "Concatenados: ");
+          Esto saca: Concatenados: casaabedulcocherioalamedaalegríaportón
+
+
+forEach -  Se ejecuta por cada elemento del array, pudiéndose cambiar el contenido del mismo.
+
+includes - Devuelve true si el array contiene el valor pasado como parámetro.
+  Distingue mayúsculas y minúsculas.
+
+from - Crea una nueva instancia de array a partir de otro objeto iterable (como colecciones) Ejemplo:
+
+        let palabra = "Estetoscopio";
+        let arrayNuevo = Array.from(palabra);
+
+        Esto saca: "E", "s", "t"......
+ */
